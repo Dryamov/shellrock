@@ -33,12 +33,11 @@ main() {
 				exit 1
 			else
 				action="$parametr"
-				[[ -z "$1" ]] && echo "missing argument"
-				shift
+				break
 			fi
 			;;
 		esac
 	done
-	echo "$action $argument"
+	$(basename "$0::$action") "$@"
 	return "$?"
 }
